@@ -4,8 +4,8 @@ import com.example.mvvm.model.NewsResponse;
 import com.example.mvvm.networking.BaseApiResponse;
 import com.example.mvvm.networking.repository.NewsRepository;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
@@ -22,7 +22,7 @@ public class NewsViewModel extends ViewModel {
     }
 
     public void getNews() {
-        if (mNewsMutableLiveData.getValue() == null) {
+        if(mNewsMutableLiveData.getValue() == null) {
             mNewsMutableLiveData.addSource(mNewsRepository.getNews(), new Observer<BaseApiResponse<NewsResponse>>() {
                 @Override
                 public void onChanged(BaseApiResponse<NewsResponse> newsResponse) {
@@ -32,7 +32,7 @@ public class NewsViewModel extends ViewModel {
         }
     }
 
-    public MutableLiveData<BaseApiResponse<NewsResponse>> getNewsMutableLiveData() {
+    public LiveData<BaseApiResponse<NewsResponse>> getNewsLiveData() {
         return mNewsMutableLiveData;
     }
 }

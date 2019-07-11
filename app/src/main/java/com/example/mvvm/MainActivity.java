@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initNewsDataObserver() {
-        mNewsViewModel.getNewsMutableLiveData().observe(this, newsResponse -> {
+        mNewsViewModel.getNewsLiveData().observe(this, newsResponse -> {
             mProgressBar.setVisibility(View.INVISIBLE);
+
             if (newsResponse.getResponseStatus() == BaseApiResponse.STATUS_OK) {
                 List<NewsArticle> newsArticles = newsResponse.getResponseData().getArticles();
                 mArticlesList.addAll(newsArticles);
