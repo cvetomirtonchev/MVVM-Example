@@ -57,6 +57,6 @@ public class BaseApiResponse<T> {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATUS_OK, STATUS_FAILED})
-    @interface ResponseStatus {
+    public @interface ResponseStatus {
     }
 }

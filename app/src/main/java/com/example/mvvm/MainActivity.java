@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mProgressBar = findViewById(R.id.progressBar);
-        mNewsViewModel = ViewModelProviders.of(this).get(NewsViewModel.class);
+        mNewsViewModel = ViewModelProviders.of(this, new NewsViewModel.Factory()).get(NewsViewModel.class);
         mRecyclerView = findViewById(R.id.rvNews);
 
         setupRecyclerView();
